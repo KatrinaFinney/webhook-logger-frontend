@@ -58,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <h1>TunnelVision:</h1>
-      <h2>Real-Time Webhook Logs with Ngrok</h2>
+      <h2>Real-Time Webhook Logs</h2>
 
       <p className="info-text">
         View incoming webhook logs from various sources. You can filter by source, search logs, and more.
