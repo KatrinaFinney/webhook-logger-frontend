@@ -13,7 +13,7 @@ function App() {
   // Fetch logs from the backend with pagination and search
   useEffect(() => {
     setLoading(true); // Show loading indicator
-    fetch(`https://webhook-logger-backend.herokuapp.com/logs?page=${currentPage}&limit=${logsPerPage}`)
+    fetch(`https://3f17-2600-1700-c4c0-2e70-38e3-3bf2-6872-eaca.ngrok-free.app/logs?page=${currentPage}&limit=${logsPerPage}`)
       .then((response) => response.json())
       .then((data) => {
         setLogs(data);
