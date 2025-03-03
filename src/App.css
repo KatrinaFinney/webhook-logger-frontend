@@ -1,38 +1,277 @@
-.App {
+/* Global styles for dark mode */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&display=swap'); /* Futuristic font */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif; /* Futuristic font for the body */
+  background-color: #121212; /* Deep charcoal background */
+  color: #eeeeee; /* Light text color for readability */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Start alignment for more space at the top */
+  height: 100vh;
+  flex-direction: column;
   text-align: center;
+  overflow-x: hidden;
+  padding: 20px; /* Add padding to the body for some breathing room */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Main App container */
+.App {
+  width: 90%;
+  max-width: 900px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #242424; /* Slate gray background for the container */
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Heading Style */
+h1 {
+  font-size: 3rem;
+  color: #1db9b8; /* Vibrant teal accent */
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Subheading */
+h2 {
+  font-size: 1.6rem;
+  color: #eeeeee;
+  margin-bottom: 30px; /* Increased bottom margin for spacing */
+}
+
+/* Informational text */
+.info-text {
+  font-size: 1.1rem;
+  color: #bbbbbb;
+  margin-bottom: 30px; /* Increased bottom margin for spacing */
+  padding: 0 10px;
+}
+
+/* Loading Spinner */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3; /* Light gray border */
+  border-top: 4px solid #1db9b8; /* Teal spinner */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Dropdown for selecting webhook source */
+.source-select {
+  margin: 30px 0; /* Increased margin for more vertical spacing */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.source-select label {
+  font-size: 1rem;
+  color: #bbbbbb;
+}
+
+.source-select select {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 250px; /* Adjusted max-width */
+}
+
+/* Search Bar */
+.search-bar input {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px; /* Added margin for spacing */
+}
+
+/* Button Style */
+.inspect-button {
+  background-color: #1db9b8;
   color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 30px; /* Added margin for better spacing */
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.inspect-button:hover {
+  background-color: #159c99;
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.inspect-button:focus {
+  outline: none;
+}
+
+/* Log Container and Item */
+.log-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased gap between logs */
+}
+
+.log-card {
+  background-color: #2b2b2b;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.log-item {
+  padding: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.event-name {
+  color: #1db9b8; /* Vibrant teal accent */
+}
+
+.source-label {
+  color: #ffb74d; /* Amber accent for source label */
+  font-style: italic;
+}
+
+.amount {
+  color: #ffb74d; /* Amber accent for the amount */
+  font-weight: bold;
+}
+
+.expand-toggle {
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.log-body {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 5px;
+  color: #cccccc;
+  font-size: 0.9rem;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+.error-notification {
+  color: #ff5252;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  font-size: 1rem;
+  background-color: #1db9b8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #666;
+}
+
+.pagination button:hover {
+  background-color: #159c99;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App {
+    width: 95%;
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .source-select select {
+    max-width: 100%;
+  }
+
+  .search-bar input {
+    max-width: 100%;
+  }
+
+  .inspect-button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .log-item {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .App {
+    padding: 10px;
+  }
+
+  .inspect-button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .log-item {
+    padding: 10px;
   }
 }
